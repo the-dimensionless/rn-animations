@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 
+//Using animated for colors will work for rbg/rgba/hcl/ and now even hex colors.
 const Color = () => {
   const [animation, setAnimation] = useState(new Animated.Value(0));
 

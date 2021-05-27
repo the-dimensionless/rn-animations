@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 // scale 1 is normal original size
+// can try with absolute positioning (@todo)
 const WidthHeightLayoutChanges = () => {
   const [animation, setAnimationX] = useState(new Animated.Value(150));
 
