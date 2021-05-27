@@ -11,31 +11,30 @@ import {
 // +ve X -> LR, +ve Y -> TB (absolute values from current positions)
 const TranslatePosition = () => {
   const [animation, setAnimation] = useState(new Animated.Value(0));
-  const animationRef = useRef(new Animated.Value(0));
 
   const animatedStyles = {
     transform: [
       {
-        translateY: animationRef.current,
+        translateY: animation,
       },
     ],
   };
 
   const onStartAnimation = () => {
     console.log('Start Animation');
-    Animated.timing(animationRef.current, {
+    Animated.timing(animation, {
       toValue: 300,
       duration: 1500,
       useNativeDriver: true,
     }).start(() => {
       console.log('callback');
-      Animated.timing(animationRef.current, {
+      Animated.timing(animation, {
         toValue: -300,
         duration: 1500,
         useNativeDriver: true,
       }).start(() => {
         console.log('back to original');
-        Animated.timing(animationRef.current, {
+        Animated.timing(animation, {
           toValue: 0,
           duration: 1500,
           useNativeDriver: true,
