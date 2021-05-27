@@ -9,32 +9,41 @@ import {
 
 // scale 1 is normal original size
 const ScalePosition = () => {
-  const [animation, setAnimation] = useState(new Animated.Value(1));
+  const [animationX, setAnimationX] = useState(new Animated.Value(1));
+  const [animationY, setAnimationY] = useState(new Animated.Value(1));
 
   const animatedStyles = {
     transform: [
       {
-        scale: animation,
+        scaleX: animationX,
+      },
+      {
+        scaleY: animationY,
       },
     ],
   };
 
   const onStartAnimation = () => {
-    console.log('Scale XY UP');
-    Animated.timing(animation, {
+    console.log('Scale X');
+    Animated.timing(animationX, {
       toValue: 2,
       duration: 1500,
       useNativeDriver: true,
     }).start(() => {
-      console.log('Go back to original');
-      Animated.timing(animation, {
-        toValue: -1,
+      console.log('Scale Y');
+      Animated.timing(animationY, {
+        toValue: 2,
         duration: 1500,
         useNativeDriver: true,
-      }).start();
+      }).start(() => {
+        console.log('Flip X');
+        Animated.timing(animationX, {
+          toValue: -2,
+          duration: 1500,
+          useNativeDriver: true,
+        }).start();
+      });
     });
-
-
   };
 
   return (
