@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   Animated,
   StyleSheet,
@@ -11,30 +11,31 @@ import {
 // +ve X -> LR, +ve Y -> TB (absolute values from current positions)
 const TranslatePosition = () => {
   const [animation, setAnimation] = useState(new Animated.Value(0));
+  const animationRef = useRef(new Animated.Value(0));
 
   const animatedStyles = {
     transform: [
       {
-        translateY: animation,
+        translateY: animationRef.current,
       },
     ],
   };
 
   const onStartAnimation = () => {
     console.log('Start Animation');
-    Animated.timing(animation, {
+    Animated.timing(animationRef.current, {
       toValue: 300,
       duration: 1500,
       useNativeDriver: true,
     }).start(() => {
       console.log('callback');
-      Animated.timing(animation, {
+      Animated.timing(animationRef.current, {
         toValue: -300,
         duration: 1500,
         useNativeDriver: true,
       }).start(() => {
         console.log('back to original');
-        Animated.timing(animation, {
+        Animated.timing(animationRef.current, {
           toValue: 0,
           duration: 1500,
           useNativeDriver: true,
