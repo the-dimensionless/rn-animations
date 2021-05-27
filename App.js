@@ -11,11 +11,17 @@ import type {Node} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 
 import Opacity from './src/animating-properties/index';
+import TranslatePosition from './src/animating-properties/translatePosition';
+import ScalePosition from './src/animating-properties/scalePosition';
+import WidthHeightLayoutChanges from './src/animating-properties/widthHeightChanges';
 
 const App: () => Node = () => {
   return (
     <SafeAreaView style={styles.parent}>
-      <Opacity />
+      {/* <Opacity /> */}
+      {/* <TranslatePosition /> */}
+      {/* <ScalePosition /> */}
+      <WidthHeightLayoutChanges />
     </SafeAreaView>
   );
 };
