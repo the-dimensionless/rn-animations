@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/animating-properties/*": ["/src/animating-properties/*"],
+        "@/src/*": ["/src/*"],
+    },
+  }
+}
