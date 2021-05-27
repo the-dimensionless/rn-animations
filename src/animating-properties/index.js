@@ -22,7 +22,15 @@ const Opacity = () => {
     Animated.timing(animation, {
       toValue: 0,
       duration: 350,
-    }).start();
+      useNativeDriver: true,
+    }).start(() => {
+      console.log('Callback running');
+      Animated.timing(animation, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }).start();
+    });
   };
 
   return (
