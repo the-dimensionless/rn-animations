@@ -14,6 +14,8 @@ import Opacity from './src/animating-properties/index';
 import TranslatePosition from './src/animating-properties/translatePosition';
 import ScalePosition from './src/animating-properties/scalePosition';
 import WidthHeightLayoutChanges from './src/animating-properties/widthHeightChanges';
+import Color from './src/animating-properties/color';
+import Rotation from './src/animating-properties/rotation';
 
 const App: () => Node = () => {
   return (
@@ -21,7 +23,9 @@ const App: () => Node = () => {
       {/* <Opacity /> */}
       {/* <TranslatePosition /> */}
       {/* <ScalePosition /> */}
-      <WidthHeightLayoutChanges />
+      {/* <WidthHeightLayoutChanges /> */}
+      {/* <Color /> */}
+      <Rotation />
     </SafeAreaView>
   );
 };
