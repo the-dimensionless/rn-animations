@@ -17,6 +17,7 @@ import WidthHeightLayoutChanges from './src/animating-properties/widthHeightChan
 import Color from './src/animating-properties/color';
 import Rotation from './src/animating-properties/rotation';
 import EasingComponent from './src/AnimatedValueFunctions/Easing';
+import SpringValueFunction from './src/AnimatedValueFunctions/SpringVFn';
 
 const App: () => Node = () => {
   return (
@@ -27,7 +28,8 @@ const App: () => Node = () => {
       {/* <WidthHeightLayoutChanges /> */}
       {/* <Color /> */}
       {/* <Rotation /> */}
-      <EasingComponent />
+      {/* <EasingComponent /> */}
+      <SpringValueFunction />
     </SafeAreaView>
   );
 };

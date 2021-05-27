@@ -112,7 +112,7 @@ Both of these calls would be consider noops. Because the value of an Animated.Va
 
 If you attach a listener it is absolutely crucial that you call removeAllListeners or removeListener in componentWillUnmount otherwise memory leaks will happen. This will cause your application to eat up more memory, and keep instances around that aren't necessary.
 
-## Easing
+## Easing Value Function
 
 Easing specifies the rate of change of a parameter over time. Different objects in real life do not travel at a constant speed. In the programming world that just means that over a set period of time the value given to a function will return a different value based upon the formula it's plugged into.
 
@@ -120,6 +120,33 @@ This is why easing is used with Animated.timing. We have a start value, a toValu
 
 ### Back, Bounce, Elastic, Bezier
 
+## Spring Value Function
+
+Animated.spring defines a way to transition an Animated.Value based on tension and friction of a spring. The tension defines how much energy the spring has, and the friction defines how quickly that energy will dissipate. Based upon the spring formula the Animated.Value will bounce around like a spring until it stops.
+
+Because this is a spring it means that the Animated.Value will overshoot the toValue that you have specified until settling to the toValue. This is unlike Animated.timing which will not exceed the toValue you specified unless you provided an easing that caused the value to overshoot.
+
+Loose bouncy spring
+
+<code class="js language-js">
+Animated.spring(this._animation, {
+  toValue: 100,
+  friction: 2,
+  tension: 140,
+}).start()
+</code>
+
+High Friction not bouncy spring
+
+<code class="js language-js">
+Animated.spring(this._animation, {
+  toValue: 100,
+  friction: 15,
+  tension: 140,
+}).start()
+</code>
+
+We can apply the same amount of tension energy but a higher friction will cause the spring to stop faster.
 
 
 https://facebook.github.io/react-native/docs/easing.html 
