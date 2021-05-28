@@ -23,6 +23,7 @@ import LoopValueFunction from './src/AnimatedValueFunctions/LoopVFn';
 import HelperEventFunction from './src/AnimatedValueFunctions/HelperEventFn';
 import DecayFunction from './src/AnimatedValueFunctions/DecayVFn';
 import MathFunctions from './src/AnimatedValueFunctions/MathVFn';
+import CombiningAnimations from 'src/CombiningAnimations/index';
 
 const App: () => Node = () => {
   return (
@@ -38,7 +39,8 @@ const App: () => Node = () => {
       {/* <LoopValueFunction /> */}
       {/* <HelperEventFunction /> */}
       {/* <DecayFunction /> */}
-      <MathFunctions />
+      {/* <MathFunctions /> */}
+      <CombiningAnimations />
     </SafeAreaView>
   );
 };

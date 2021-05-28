@@ -10,29 +10,10 @@ import {
   View,
 } from 'react-native';
 
-// Add, Multiply, Divide, Modulo, Formulas
 const RANDOM_VALUE = 3; // can also be animated value
 
-const MathValueFunction = () => {
+const CombiningAnimations = () => {
   const [animation, setAnimation] = useState(new Animated.Value(0));
-  const [newAnimation, setNewAnimation] = useState(
-    Animated.modulo(animation, RANDOM_VALUE),
-  );
-  // returns non negative modulo of 2 values
-
-  const interpolated = newAnimation.interpolate({
-    inputRange: [0, 3],
-    outputRange: ['0deg', '120deg'],
-  });
-
-  const animatedStyles = {
-    transform: [
-      {
-        rotate: interpolated,
-      },
-    ],
-  };
-
   const onStartAnimation = () => {
     Animated.timing(animation, {
       toValue: 12,
@@ -50,13 +31,13 @@ const MathValueFunction = () => {
   return (
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={() => onStartAnimation()}>
-        <Animated.View style={[styles.box, animatedStyles]} />
+        <Animated.View style={[styles.box]} />
       </TouchableWithoutFeedback>
     </View>
   );
 };
 
-export default MathValueFunction;
+export default CombiningAnimations;
 
 const styles = StyleSheet.create({
   container: {

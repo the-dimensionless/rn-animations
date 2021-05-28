@@ -216,6 +216,15 @@ const positionWithOffset = Animated.add(position, offset);
 const positionOffsetWithRandomNumber = Animated.add(positionWithOffset, otherNumber);
 // value = 550;
 
+### Formulas
+
+User rastapasta has already built some great examples of how these math functions can be used to create different, and useful math logic. He compiled them in the library react-native-animated-math.
+
+https://github.com/rastapasta/react-native-animated-math/blob/master/index.js
+
+### Combining Animations
+
+The real power here is being able to combine various timing, spring, and other methods to generate the animation you want. This helps cover bases when interpolate isn't enough, or different animated values need different animations.
 
 ### Some Useful links suggested by the author Jason Brown 
 Udemy Course (master-react-native-animations)
