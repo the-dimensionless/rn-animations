@@ -236,6 +236,17 @@ Also if you just have multiple timed animations and you need them to animate at 
 
 This is used to run a set of animations one after the other. Once an animation is finished the next one is run. So as we see here we run first a color animation, then we scale. Our start callback won't be run until they both finish, so in 800 milliseconds.
 
+One of the best examples of staggered animations is draggable chat heads. Every time the lead head is dragged to a position the others follow suit using the exact same animation path and velocity. Another example is staggering the visibility/rendering of form items, or other elements upon rendering.
+#### Stagger
+
+Staggering animations is a great way to have consistent animations with a small space in between them. Typically the animations are going to be the same but they don't have to be.
+
+#### Delay
+
+The only time delay is used is when combining with animations. Typically used in conjunction with sequence to cause a delay before a second set of animations is run. This can also be used with super complex animations using sequence and parallel.
+
+
+
 
 ### Some Useful links suggested by the author Jason Brown 
 Udemy Course (master-react-native-animations)

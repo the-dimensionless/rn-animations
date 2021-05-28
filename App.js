@@ -25,6 +25,8 @@ import DecayFunction from './src/AnimatedValueFunctions/DecayVFn';
 import MathFunctions from './src/AnimatedValueFunctions/MathVFn';
 import ParallelAnimation from './src/CombiningAnimations/Parallel';
 import SequenceAnimation from './src/CombiningAnimations/Sequence';
+import StaggerAnimation from './src/CombiningAnimations/Stagger';
+import DelayAnimation from './src/CombiningAnimations/Delay';
 
 const App: () => Node = () => {
   return (
@@ -42,7 +44,9 @@ const App: () => Node = () => {
       {/* <DecayFunction /> */}
       {/* <MathFunctions /> */}
       {/* <ParallelAnimation /> */}
-      <SequenceAnimation />
+      {/* <SequenceAnimation /> */}
+      {/* <StaggerAnimation /> */}
+      <DelayAnimation />
     </SafeAreaView>
   );
 };
