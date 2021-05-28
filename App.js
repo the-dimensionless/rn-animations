@@ -21,6 +21,7 @@ import EasingComponent from './src/AnimatedValueFunctions/Easing';
 import SpringValueFunction from './src/AnimatedValueFunctions/SpringVFn';
 import LoopValueFunction from './src/AnimatedValueFunctions/LoopVFn';
 import HelperEventFunction from './src/AnimatedValueFunctions/HelperEventFn';
+import DecayFunction from './src/AnimatedValueFunctions/DecayVFn';
 
 const App: () => Node = () => {
   return (
@@ -34,7 +35,8 @@ const App: () => Node = () => {
       {/* <EasingComponent /> */}
       {/* <SpringValueFunction /> */}
       {/* <LoopValueFunction /> */}
-      <HelperEventFunction />
+      {/* <HelperEventFunction /> */}
+      <DecayFunction />
     </SafeAreaView>
   );
 };
