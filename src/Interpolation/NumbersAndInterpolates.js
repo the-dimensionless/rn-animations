@@ -23,8 +23,16 @@ const NumbersAndInterpolates = () => {
     outputRange: [1, 0.5],
   });
 
+  const translateXInterpolate = firstInterpolation.interpolate({
+    inputRange: [0, 30, 50, 80, 100, 150, 299, 300],
+    outputRange: [0, -30, -50, 80, -100, 300, 0, -100],
+  });
+
   const animatedStyles = {
-    transform: [{translateY: firstInterpolation}],
+    transform: [
+      {translateY: firstInterpolation},
+      {translateX: translateXInterpolate},
+    ],
     opacity: doubleInterpolation,
   };
 
