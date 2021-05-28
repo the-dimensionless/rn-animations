@@ -14,6 +14,9 @@ import {
 // has velocity & deceleration
 const DecayFunction = () => {
   const [animation, setAnimation] = useState(new Animated.ValueXY(0));
+  const xOffset = useRef(0);
+  const yOffset = useRef(0);
+
   const panResponderRef = useMemo(
     () =>
       PanResponder.create({
@@ -29,6 +32,16 @@ const DecayFunction = () => {
           ],
           {useNativeDriver: false},
         ),
+        onPanResponderGrant: () => {
+          animation.setOffset({
+            x: xOffset.current,
+            y: yOffset.current,
+          });
+          animation.setValue({
+            x: 0,
+            y: 0,
+          });
+        },
         onPanResponderRelease: (e, {vx, vy}) => {
           Animated.decay(animation, {
             velocity: {x: vx, y: vy},
@@ -39,6 +52,13 @@ const DecayFunction = () => {
       }),
     [animation],
   );
+
+  useEffect(() => {
+    animation.addListener(value => {
+      xOffset.current = value.x;
+      yOffset.current = value.y;
+    });
+  }, [animation]);
 
   const animatedStyles = {
     transform: animation.getTranslateTransform(),
