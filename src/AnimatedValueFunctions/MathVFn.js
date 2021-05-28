@@ -11,12 +11,12 @@ import {
 } from 'react-native';
 
 // Add, Multiply, Divide, Modulo, Formulas
-const RANDOM_VALUE = 50;
+const RANDOM_VALUE = 2;
 
 const MathValueFunction = () => {
   const [animation, setAnimation] = useState(new Animated.Value(0));
   const [newAnimation, setNewAnimation] = useState(
-    Animated.add(animation, RANDOM_VALUE),
+    Animated.divide(animation, RANDOM_VALUE),
   );
 
   const animatedStyles = {
@@ -27,9 +27,25 @@ const MathValueFunction = () => {
     ],
   };
 
+  const onStartAnimation = () => {
+    Animated.timing(animation, {
+      toValue: 300,
+      duration: 500,
+      useNativeDriver: true,
+    }).start(() => {
+      Animated.timing(animation, {
+        toValue: 0,
+        duration: 200,
+        useNativeDriver: true,
+      }).start();
+    });
+  };
+
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.box, animatedStyles]} />
+      <TouchableWithoutFeedback onPress={() => onStartAnimation()}>
+        <Animated.View style={[styles.box, animatedStyles]} />
+      </TouchableWithoutFeedback>
     </View>
   );
 };
