@@ -148,9 +148,73 @@ Animated.spring(this._animation, {
 
 We can apply the same amount of tension energy but a higher friction will cause the spring to stop faster.
 
+### Loop Value Function
+
+This is used when an animation needs to keep repeating. One thing to note here is that the loop will reset the Animated.Value back to it's original value before starting the animation over.
+
+So unless your animation ends back where it started you will see a jump. 
+
+Additionally in the configuration of loop you can specify the number of iterations that the animation should loop.
 
 https://facebook.github.io/react-native/docs/easing.html 
 
+### Event Value Function
+
+The Animated.event is a utility method to automatically set a value on an Animated.Value given an array/keys to traverse. Typically this would be used with the onScroll or onPanResponderMove. It receives an array of instructions. Animated.event returns a function, when the function is called the arguments it is called with are applied to the instructions in the array you provided. Once those instructions are traversed when ever the function is called it just does a setValue with the provided value on to the Animated.Value.
+
+The typical callback signature of React is event first, then additional properties like gestureState for PanResponders. On the event nativeEvent contains all the content you need.
+
+Because a function would be called with (event, gestureState) => {}, the instructions to get data from event would need to be placed into the first array spot in Animated.event.
+
+In the case of an onScroll from a ScrollView you need to provide a few levels of instructions.
+
+Animated.event([
+{
+  nativeEvent: {
+    contentOffset: {
+      y: this._animation
+    }
+  }
+}
+])
+
+If you don't need to reference anything off an event simply pass in null so that the argument call signature matches the array of instructions.
+
+In the case of a PanResponder you would skip the event piece with null and only provide instructions to automatically set animated values from gestureState
+
+Animated.event([
+  null,
+  {
+    dx: this._animation.x,
+    dy: this._animation.y
+  }
+])
+
+
+### Decay Value Function
+
+The Animated.decay call is primarily used for dragging and gesture animations. All it requires is you to provide a velocity in an x and y direction as well as a friction to slow it down. This means you can create realistic throwing animations, etc.
+
+The primary use case is for gesture animations after a user has released their finger.
+
+### Math
+
+The only issue is that this is cumbersome, inflexible, async, and isn't declarative. To help with this Animated had basic math options added. Including add, divide, multiply and moduolo. These can all be used in conjunction with each other as many times as you'd like.
+
+They also can operate on any Animated.Value or simple numbers can used in place of an Animated.Value.
+
+ADD:
+const position = new Animated.Value(100);
+const offset = new Animated.Value(50);
+const positionWithOffset = Animated.add(position, offset);
+// value = 150;
+
+const position = new Animated.Value(100);
+const offset = new Animated.Value(50);
+const otherNumber = new Animated.Value(400);
+const positionWithOffset = Animated.add(position, offset);
+const positionOffsetWithRandomNumber = Animated.add(positionWithOffset, otherNumber);
+// value = 550;
 
 
 ### Some Useful links suggested by the author Jason Brown 

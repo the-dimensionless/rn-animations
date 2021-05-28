@@ -22,6 +22,7 @@ import SpringValueFunction from './src/AnimatedValueFunctions/SpringVFn';
 import LoopValueFunction from './src/AnimatedValueFunctions/LoopVFn';
 import HelperEventFunction from './src/AnimatedValueFunctions/HelperEventFn';
 import DecayFunction from './src/AnimatedValueFunctions/DecayVFn';
+import MathFunctions from './src/AnimatedValueFunctions/MathVFn';
 
 const App: () => Node = () => {
   return (
@@ -36,7 +37,8 @@ const App: () => Node = () => {
       {/* <SpringValueFunction /> */}
       {/* <LoopValueFunction /> */}
       {/* <HelperEventFunction /> */}
-      <DecayFunction />
+      {/* <DecayFunction /> */}
+      <MathFunctions />
     </SafeAreaView>
   );
 };
