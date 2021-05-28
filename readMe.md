@@ -226,6 +226,17 @@ https://github.com/rastapasta/react-native-animated-math/blob/master/index.js
 
 The real power here is being able to combine various timing, spring, and other methods to generate the animation you want. This helps cover bases when interpolate isn't enough, or different animated values need different animations.
 
+#### Parallel
+
+The parallel call will take an array of animations and start them all at the same time. A good example of this is when you might have a separate animated value for opacity and a separate animated value for a position of an element. The opacity would be on a strict Animated.timing, but you might want the position to Animated.spring out of the way.
+
+Also if you just have multiple timed animations and you need them to animate at the same time you can do that as well. The start callback won't be called until the last animation is finished. Which would be the scaleAnimation that runs for 500 milliseconds.
+
+#### Sequence
+
+This is used to run a set of animations one after the other. Once an animation is finished the next one is run. So as we see here we run first a color animation, then we scale. Our start callback won't be run until they both finish, so in 800 milliseconds.
+
+
 ### Some Useful links suggested by the author Jason Brown 
 Udemy Course (master-react-native-animations)
 

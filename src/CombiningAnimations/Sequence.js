@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 
-const ParallelAnimation = () => {
+const SequenceAnimation = () => {
   const [colorAnimation, setColorAnimation] = useState(new Animated.Value(0));
   const [scaleAnimation, setScaleAnimation] = useState(new Animated.Value(1));
 
@@ -22,8 +22,8 @@ const ParallelAnimation = () => {
   };
 
   const onStartAnimation = () => {
-    console.log('Start Animation');
-    Animated.parallel([
+    console.log('Start Sequence Animation');
+    Animated.sequence([
       Animated.timing(colorAnimation, {
         toValue: 1,
         duration: 1500, //ms,
@@ -34,9 +34,7 @@ const ParallelAnimation = () => {
         duration: 300, //ms,
         useNativeDriver: false,
       }),
-    ]).start(() => {
-      console.log('Animation is completed !');
-    });
+    ]).start(() => console.log('Animation is completed !'));
   };
 
   return (
@@ -50,7 +48,7 @@ const ParallelAnimation = () => {
   );
 };
 
-export default ParallelAnimation;
+export default SequenceAnimation;
 
 const styles = StyleSheet.create({
   container: {
