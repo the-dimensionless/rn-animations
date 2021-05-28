@@ -27,6 +27,7 @@ import ParallelAnimation from './src/CombiningAnimations/Parallel';
 import SequenceAnimation from './src/CombiningAnimations/Sequence';
 import StaggerAnimation from './src/CombiningAnimations/Stagger';
 import DelayAnimation from './src/CombiningAnimations/Delay';
+import NumbersAndInterpolates from './src/Interpolation/NumbersAndInterpolates';
 
 const App: () => Node = () => {
   return (
@@ -46,7 +47,8 @@ const App: () => Node = () => {
       {/* <ParallelAnimation /> */}
       {/* <SequenceAnimation /> */}
       {/* <StaggerAnimation /> */}
-      <DelayAnimation />
+      {/* <DelayAnimation /> */}
+      <NumbersAndInterpolates />
     </SafeAreaView>
   );
 };
