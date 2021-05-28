@@ -11,25 +11,30 @@ import {
 } from 'react-native';
 
 // Add, Multiply, Divide, Modulo, Formulas
-const RANDOM_VALUE = 6;
+const RANDOM_VALUE = 3; // can also be animated value
 
 const MathValueFunction = () => {
   const [animation, setAnimation] = useState(new Animated.Value(0));
   const [newAnimation, setNewAnimation] = useState(
-    Animated.multiply(animation, RANDOM_VALUE),
+    Animated.modulo(animation, RANDOM_VALUE),
   );
+
+  const interpolated = newAnimation.interpolate({
+    inputRange: [0, 3],
+    outputRange: ['0deg', '120deg'],
+  });
 
   const animatedStyles = {
     transform: [
       {
-        translateY: newAnimation,
+        rotate: interpolated,
       },
     ],
   };
 
   const onStartAnimation = () => {
     Animated.timing(animation, {
-      toValue: 50,
+      toValue: 12,
       duration: 1500,
       useNativeDriver: true,
     }).start(() => {
