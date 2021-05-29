@@ -31,6 +31,7 @@ import NumbersAndInterpolates from './src/Interpolation/NumbersAndInterpolates';
 import ParentPanResponder from './src/GesturesAndAnimations/ParentPanResponder';
 import Cliff99 from './src/AnimatedTechniques/.99cliff';
 import AnimateHidden from './src/AnimatedTechniques/Hidden';
+import Corners from './src/BasicProjects/Corners';
 
 const App: () => Node = () => {
   return (
@@ -54,7 +55,8 @@ const App: () => Node = () => {
       {/* <NumbersAndInterpolates /> */}
       {/* <ParentPanResponder /> */}
       {/* <Cliff99 /> */}
-      <AnimateHidden />
+      {/* <AnimateHidden /> */}
+      <Corners />
     </SafeAreaView>
   );
 };
@@ -62,6 +64,8 @@ const App: () => Node = () => {
 const styles = StyleSheet.create({
   parent: {
     flex: 1,
+    borderColor: 'green',
+    borderWidth: 1,
   },
 });
 
