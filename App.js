@@ -30,6 +30,7 @@ import DelayAnimation from './src/CombiningAnimations/Delay';
 import NumbersAndInterpolates from './src/Interpolation/NumbersAndInterpolates';
 import ParentPanResponder from './src/GesturesAndAnimations/ParentPanResponder';
 import Cliff99 from './src/AnimatedTechniques/.99cliff';
+import AnimateHidden from './src/AnimatedTechniques/Hidden';
 
 const App: () => Node = () => {
   return (
@@ -52,7 +53,8 @@ const App: () => Node = () => {
       {/* <DelayAnimation /> */}
       {/* <NumbersAndInterpolates /> */}
       {/* <ParentPanResponder /> */}
-      <Cliff99 />
+      {/* <Cliff99 /> */}
+      <AnimateHidden />
     </SafeAreaView>
   );
 };
