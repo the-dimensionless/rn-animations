@@ -28,6 +28,7 @@ import SequenceAnimation from './src/CombiningAnimations/Sequence';
 import StaggerAnimation from './src/CombiningAnimations/Stagger';
 import DelayAnimation from './src/CombiningAnimations/Delay';
 import NumbersAndInterpolates from './src/Interpolation/NumbersAndInterpolates';
+import ParentPanResponder from './src/GesturesAndAnimations/ParentPanResponder';
 
 const App: () => Node = () => {
   return (
@@ -48,7 +49,8 @@ const App: () => Node = () => {
       {/* <SequenceAnimation /> */}
       {/* <StaggerAnimation /> */}
       {/* <DelayAnimation /> */}
-      <NumbersAndInterpolates />
+      {/* <NumbersAndInterpolates /> */}
+      <ParentPanResponder />
     </SafeAreaView>
   );
 };
